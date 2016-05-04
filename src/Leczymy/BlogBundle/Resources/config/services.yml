@@ -1,0 +1,7 @@
+services:
+    blog_notification:
+        class: Leczymy\BlogBundle\Service\NotificationService
+        arguments: ["@session"]  
+#    leczymy_blog.example:
+#        class: Leczymy\BlogBundle\Example 
+#        arguments: ["@service_id", "plain_value", %parameter%]

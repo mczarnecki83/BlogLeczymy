@@ -1,0 +1,8 @@
+leczymy_blog_homepage:
+    path:     /
+    defaults: { _controller: LeczymyBlogBundle:Blog:list }
+    
+leczymy_blog_create:
+    path:     /create
+    defaults: { _controller: LeczymyBlogBundle:Blog:create }
+    

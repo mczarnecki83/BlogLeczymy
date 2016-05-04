@@ -1,0 +1,53 @@
+    {% extends 'base.html.twig' %}
+      
+       {% block body %}
+      <h2 class="page-header"> Lista postów  </h2>
+      
+      <div class="starter-template">
+       
+       
+        
+        <table class="table table-bordered table-striped"> 
+        <thead> 
+        <tr>
+       
+        	<th>Akcje </th> 
+          <th>Nazwa </th> 
+           <th> Data dodania </th> 
+           </tr>
+            </thead>
+             <tbody>
+             
+ {# {% for post in posts %} #}
+    {% for post in pagination %}             
+                 <tr> 
+                 <th>
+                 <a href="post/details/{{post.id}}" class="btn btn-large btn-success">details 1</a>
+                 
+                 {% if is_granted('ROLE_USER') %}
+                 <a href="post/edit/{{post.id}}" class="btn btn-large btn-warning">edit 1</a>
+                 <a href="post/delete/{{post.id}}" class="btn btn-large btn-danger">delete 1</a>
+                 {% endif %}
+                 
+                 </th> 
+               
+                   <td>{{post.name}}</td>
+                    <td>{{post.createDate|date('d.m.Y, H:m')}}</td> 
+                    </tr>
+
+               {% else %}
+               <tr> <td colspan="3">Brak danych  </td> </tr>
+                
+      {% endfor %}         
+         
+                   
+                 
+                                           
+                                            </tbody> 
+                                            </table>
+                                            
+                                            {{ knp_pagination_render(pagination) }}
+        
+        
+      </div>
+      {% endblock %}
